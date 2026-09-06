@@ -9,7 +9,7 @@ javac -d bin src/*.java
 java -cp bin Pong
 ```
 
-Run it from the project folder, not from inside src or bin, or the leaderboard won't save right.
+Run it from the project folder, not from inside src or bin, or the leaderboard won't save properly.
 
 ## Controls
 
