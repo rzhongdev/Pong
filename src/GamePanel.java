@@ -190,15 +190,22 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    //Resolve save files to a fixed location so they don't fork based on the working directory the game is launched from
+    static File getSaveFile(String name) {
+        File dir = new File(System.getProperty("user.home"), ".pong");
+        dir.mkdirs();
+        return new File(dir, name);
+    }
+
     //Game ended
-    public void endGame(int winner) {    
+    public void endGame(int winner) {
         //Create/Print inside files for leaderboard
         //Array length 5 for previous, 6 for adding new score
         int[] hits = new int[6];
         int[] speeds = new int[6];
         //Singleplayer leaderboard
         if (singleplayer) {
-            File file = new File ("SingleplayerPong.txt");
+            File file = getSaveFile("SingleplayerPong.txt");
             if (file.exists()){
                 try {
                     //File Order: (Line1: Hits, Line2: Speed)x3
@@ -266,7 +273,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
         //Multiplayer leaderboard
         else {
-            File file = new File ("MultiplayerPong.txt");
+            File file = getSaveFile("MultiplayerPong.txt");
             if (file.exists()){
                 try {
                     //File Order: (Line1: Hits, Line2: Speed)x3

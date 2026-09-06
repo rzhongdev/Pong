@@ -49,7 +49,7 @@ public class Leaderboard extends JFrame implements ActionListener{
         if (singleplayer) {
             titleLabel.setText("Personal Singleplayer Leaderboard");
             try {
-                FileReader fr = new FileReader("SingleplayerPong.txt");
+                FileReader fr = new FileReader(GamePanel.getSaveFile("SingleplayerPong.txt"));
                 Scanner s = new Scanner(fr);
 
                 int i = 0;
@@ -74,7 +74,7 @@ public class Leaderboard extends JFrame implements ActionListener{
         else {
             titleLabel.setText("Personal Multiplayer Leaderboard");
             try {
-                FileReader fr = new FileReader("MultiplayerPong.txt");
+                FileReader fr = new FileReader(GamePanel.getSaveFile("MultiplayerPong.txt"));
                 Scanner s = new Scanner(fr);
 
                 int i = 0;
