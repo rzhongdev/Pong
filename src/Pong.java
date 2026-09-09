@@ -81,7 +81,7 @@ public class Pong implements ActionListener{
         label3.setBounds(75, 60, 600, 30);
 
         //Set frame
-        frame.setTitle("STL Database");
+        frame.setTitle("Pong");
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700,500);
