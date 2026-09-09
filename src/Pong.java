@@ -134,7 +134,7 @@ public class Pong implements ActionListener{
         if (e.getSource() == button3) {
             //Stuff for fun
             for (int i = 0; i < 3; i++) {
-                JOptionPane.showMessageDialog(null, "You're computer has a VIRUS!!!", "The real STL Database", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "You're computer has a VIRUS!!!", "Pong", JOptionPane.WARNING_MESSAGE);
             }
             button3.setVisible(false);
         }
