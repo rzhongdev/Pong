@@ -83,6 +83,7 @@ public class GamePanel extends JPanel implements Runnable {
         paddle2.draw(g2d);
         ball.draw(g2d);
         score.draw(g2d);
+        //Draw "Paused" text over everything while paused
         if (paused) {
             g2d.setFont(new Font("Consolas", Font.PLAIN, 40));
             g2d.drawString("Paused", (gameWidth/2)-90, (gameHeight/2));
@@ -379,6 +380,7 @@ public class GamePanel extends JPanel implements Runnable {
             delta += (now-lastTime)/nanoseconds;
             lastTime = now;
             if (delta >= 1) {
+                //Skip movement and collision while paused
                 if (!paused) {
                     move();
                     checkCollision();
@@ -400,7 +402,7 @@ public class GamePanel extends JPanel implements Runnable {
             //Sends key released to method inside Paddle class
             paddle1.keyReleased(e);
             paddle2.keyReleased(e);
-            //P key toggles pause (checked on release so holding it doesn't rapidly flip the state)
+            //P key toggles pause
             if (e.getKeyCode() == KeyEvent.VK_P) paused = !paused;
         }
     }
