@@ -4,6 +4,8 @@ Java Pong game I made in high school. The ball has a random chance to speed up e
 
 ## How to run
 
+Requires a JDK installed and on your PATH.
+
 ```
 javac -d bin src/*.java
 java -cp bin Pong
