@@ -232,6 +232,7 @@ public class GamePanel extends JPanel implements Runnable {
                         }
                         i++;
                     }
+                    s.close();
                     //Add the scores of the previously played game and sort it
                     hits[j] = score.hit1;
                     selectionSort(hits);
@@ -300,6 +301,7 @@ public class GamePanel extends JPanel implements Runnable {
                         }
                         i++;
                     }
+                    s.close();
                     //Add the scores of the previously played game and sort it
                     hits[j] = (score.hit1 + score.hit2);
                     selectionSort(hits);
