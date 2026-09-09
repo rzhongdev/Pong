@@ -24,6 +24,7 @@ public class GamePanel extends JPanel implements Runnable {
     boolean p1 = true;
     boolean p2 = true;
     boolean loop = true;
+    boolean paused = false;
     GameFrame frame;
 
     //Constructor
@@ -82,6 +83,10 @@ public class GamePanel extends JPanel implements Runnable {
         paddle2.draw(g2d);
         ball.draw(g2d);
         score.draw(g2d);
+        if (paused) {
+            g2d.setFont(new Font("Consolas", Font.PLAIN, 40));
+            g2d.drawString("Paused", (gameWidth/2)-90, (gameHeight/2));
+        }
     }
 
     public void move() {
@@ -374,8 +379,10 @@ public class GamePanel extends JPanel implements Runnable {
             delta += (now-lastTime)/nanoseconds;
             lastTime = now;
             if (delta >= 1) {
-                move();
-                checkCollision();
+                if (!paused) {
+                    move();
+                    checkCollision();
+                }
                 repaint();
                 delta--;
             }
@@ -393,6 +400,8 @@ public class GamePanel extends JPanel implements Runnable {
             //Sends key released to method inside Paddle class
             paddle1.keyReleased(e);
             paddle2.keyReleased(e);
+            //P key toggles pause (checked on release so holding it doesn't rapidly flip the state)
+            if (e.getKeyCode() == KeyEvent.VK_P) paused = !paused;
         }
     }
 

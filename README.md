@@ -15,4 +15,5 @@ Run it from the project folder, not from inside src or bin, or the leaderboard w
 
 Player 1: W / S
 Player 2: Up / Down arrows
+Pause/Resume: P
 
